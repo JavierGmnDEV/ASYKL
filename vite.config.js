@@ -9,4 +9,5 @@ export default defineConfig({
       external: [/node_modules/], // Excluir node_modules explícitamente
     },
   },
+  base: '/FrontendCanada/',
 })
