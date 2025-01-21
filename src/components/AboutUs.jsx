@@ -1,6 +1,7 @@
 import { Box, Typography, Button } from '@mui/material';
 import { useModalStore } from '../storeZustand/authStore';
 import ContactModal from './ContactModal';
+import { FacebookOutlined, Instagram, Twitter } from '@mui/icons-material';
 
 const AboutUs = () => {
   const { openContactModal } = useModalStore();
@@ -45,9 +46,9 @@ const AboutUs = () => {
           &copy; 2025 ASCYKL SERVICE & REPRESENTATION. Todos los derechos reservados.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
-          <a href="#" className="hover:underline">Facebook</a>
-          <a href="#" className="hover:underline">Twitter</a>
-          <a href="#" className="hover:underline">Instagram</a>
+          <a href="#" className="hover:underline"><FacebookOutlined/></a>
+          <a href="#" className="hover:underline"><Twitter/></a>
+          <a href="#" className="hover:underline"><Instagram/></a>
         </Box>
       </Box>
       {/* Modal de contacto */}

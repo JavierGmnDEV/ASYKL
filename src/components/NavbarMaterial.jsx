@@ -134,7 +134,7 @@ const [Show, setShow] = useState(false)
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              ASCYKL SERVICE & REPRESENTATION
+              ASCYKL
             </Typography>
           
             <Box sx={{ flexGrow: 0 }}>
