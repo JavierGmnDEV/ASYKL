@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,7 +15,8 @@ import { useGoogleLogin } from '@react-oauth/google';
 import CloseIcon from '@mui/icons-material/Close';
 import { Menu } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
+import RouteTransition from './ShowTransition';
+import logo from '../images/logo-removebg.webp'
 const pages = ['Sell', 'Requests', 'Documents', 'About'];
 const settings = ['Logout'];
 
@@ -24,7 +25,7 @@ const NavbarMaterial = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const navigate = useNavigate();
-
+const [Show, setShow] = useState(false)
   const handleOpenNavMenu = () => {
     setMenuOpen(true);
   };
@@ -75,7 +76,12 @@ const NavbarMaterial = () => {
         navigate('/Home');
         break;
         case 'Sell':
-        navigate('/ecommerce');
+        setShow(true)
+        setTimeout(() => {
+          navigate('/ecommerce');
+          setShow(false)
+        }, 1000);
+
         break;
       
       case 'Requests':
@@ -96,6 +102,7 @@ const NavbarMaterial = () => {
 
   return (
     <div className='z-50'>
+      <RouteTransition show={Show} />
       <AppBar position="static" sx={{ backgroundColor: 'white', zIndex: "1000", }} className='z-50'>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -111,6 +118,11 @@ const NavbarMaterial = () => {
                 <MenuIcon className='text-blue-800' />
               </IconButton>
             </Box>
+              {/* Espacio para el logo */}
+              <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 1 }}>
+                <img src={logo} alt="Logo" style={{ width: 40, height: 40 }} />
+              </Box>
+
             <Typography
               noWrap
               component="div"
