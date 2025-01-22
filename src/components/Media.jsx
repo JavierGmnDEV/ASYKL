@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Skeleton } from '@mui/material';
+import { Divider, Skeleton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const Media = ({ data }) => {
@@ -25,15 +25,21 @@ const Media = ({ data }) => {
           {item ? (
             <div className="p-4 flex flex-col justify-between flex-grow mb-4 ">
               <div className='mb-4'> <h2 className="text-sm font-medium mb-2">{item.title}</h2>
-                <p className="text-sm text-gray-600">{item.description}</p>
-                <p className="text-sm text-gray-600">{`Quantity per Container: ${item.quantity_per_container}`}</p>
-                <p className="text-sm text-gray-600">{`Price per Sack: ${item.price_per_sack}`}</p>
-                <p className="text-sm text-gray-600">{`Price per Kg: ${item.price_per_kg}`}</p>
-                <p className="text-sm text-gray-600">{`Container Quantity: ${item.container_quantity}`}</p>
+                <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+                <Divider></Divider>
+               
+                <p className="text-sm text-blue-500 mb-2 mt-2">{`Quantity per Container: ${item.quantity_per_container}`}</p>
+                <Divider className=' bg-slate-950  mt-5'></Divider>
+                
+                <p className="text-sm text-green-800">{`Price per Sack: ${item.price_per_sack}`}</p>
+                <p className="text-sm text-green-800">{`Price per Kg: ${item.price_per_kg}`}</p>
+                <p className="text-sm text-gray-600 mb-2">{`Container Quantity: ${item.container_quantity}`}</p>
+                <Divider className=' bg-slate-950  mt-5 mb-2'></Divider>
+                
               </div>
-              <div className="flex justify-between items-center mt-auto">
+              <div className="flex justify-between items-center mt-2">
                 <div>
-                  <p className="text-sm text-gray-600">{`Discount: ${item.discount}`}</p>
+                  <p className="text-sm text-orange-600">{`Discount: ${item.discount}`}</p>
                 </div>
                 <button
                   className="bg-blue-500 text-white text-sm py-1 px-2 rounded"

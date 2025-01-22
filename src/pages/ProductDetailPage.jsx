@@ -8,7 +8,11 @@ const ProductDetailPage = () => {
      
      
      <NavbarMaterial />
+     <div className="mt-11">
+
+
       <ProductDetail />
+     </div>
       
     </div>
   );

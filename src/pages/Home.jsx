@@ -15,6 +15,9 @@ const Home = () => {
      
      
      <NavbarMaterial />
+     <div className="mt-0">
+
+
       <LiquidationSection/>
       <MaritimeInfo/>
       <MaritimeTransport/>
@@ -26,6 +29,7 @@ const Home = () => {
       <ScrollToTopButton />
       <AboutUs id='about-section'/>
       
+     </div>
     </div>
   );
 };

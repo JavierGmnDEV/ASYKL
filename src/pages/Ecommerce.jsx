@@ -30,6 +30,47 @@ const data = [
     container_quantity: '20 containers',
     discount: '10%',
   },
+  {
+    src: 'https://th.bing.com/th/id/OIP.U9rSmASvcU7ihbiTrEq6_gHaFD?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Whole Milk',
+    description: '1-liter whole milk, rich in nutrients and perfect for your breakfast.',
+    quantity_per_container: '1 liter',
+    price_per_sack: '$14.90',
+    price_per_kg: '$1.49',
+    container_quantity: '20 containers',
+    discount: '10%',
+  },
+  {
+    src: 'https://th.bing.com/th/id/OIP.U9rSmASvcU7ihbiTrEq6_gHaFD?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Whole Milk',
+    description: '1-liter whole milk, rich in nutrients and perfect for your breakfast.',
+    quantity_per_container: '1 liter',
+    price_per_sack: '$14.90',
+    price_per_kg: '$1.49',
+    container_quantity: '20 containers',
+    discount: '10%',
+  },
+  {
+    src: 'https://th.bing.com/th/id/OIP.U9rSmASvcU7ihbiTrEq6_gHaFD?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Whole Milk',
+    description: '1-liter whole milk, rich in nutrients and perfect for your breakfast.',
+    quantity_per_container: '1 liter',
+    price_per_sack: '$14.90',
+    price_per_kg: '$1.49',
+    container_quantity: '20 containers',
+    discount: '10%',
+  },
+  {
+    src: 'https://th.bing.com/th/id/OIP.U9rSmASvcU7ihbiTrEq6_gHaFD?w=259&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Whole Milk',
+    description: '1-liter whole milk, rich in nutrients and perfect for your breakfast.',
+    quantity_per_container: '1 liter',
+    price_per_sack: '$14.90',
+    price_per_kg: '$1.49',
+    container_quantity: '20 containers',
+    discount: '10%',
+  },
+  
   // Add other products similarly...
 ];
 
@@ -46,6 +87,8 @@ function Ecommerce() {
   return (
     <div>
       <NavbarMaterial />
+      <div className="mt-16">
+
       
       <Box id="search-section" sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' }, justifyContent: 'center' }}>
         <SearchBar /> {/* Eliminar el prop onSearch */}
@@ -57,6 +100,7 @@ function Ecommerce() {
       <RecommendedProductsCarousel/>
       <ScrollToTopButton />
       <AboutUs id='about-section'/>
+      </div>
     </div>
   );
 }

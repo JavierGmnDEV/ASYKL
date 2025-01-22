@@ -2,6 +2,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState, useEffect } from 'react';
 import { useSearchStore } from '../storeZustand/authStore';
+import { Divider } from '@mui/material';
 
 export const RecommendedProductsCarousel = () => {
   const products = useSearchStore((state) => state.products);
@@ -60,14 +61,25 @@ export const RecommendedProductsCarousel = () => {
                 <div className="bg-white shadow-md rounded-lg p-4 m-2 w-60 transform transition-transform duration-300 hover:scale-105 ">
                   <img src={product.src} alt={product.title} className="w-full h-32 object-cover rounded-t-lg" />
                   <div className="p-4 ">
-                    <h2 className="text-lg font-bold mb-2">{product.title}</h2>
-                    <p className="text-gray-700 mb-2">{product.description}</p>
-                    <p className="text-gray-700 mb-2">{`Quantity per Container: ${product.quantity_per_container}`}</p>
-                    <p className="text-gray-700 mb-2">{`Price per Sack: ${product.price_per_sack}`}</p>
-                    <p className="text-gray-700 mb-2">{`Price per Kg: ${product.price_per_kg}`}</p>
-                    <p className="text-gray-700 mb-2">{`Container Quantity: ${product.container_quantity}`}</p>
-                    <p className="text-gray-900 font-bold">{product.price}</p>
-                    <p className="text-red-500">{product.discount}</p>
+                  <div className='mb-4'> <h2 className="text-sm font-medium mb-2">{product.title}</h2>
+                <p className="text-sm text-gray-600 mb-2">{product.description}</p>
+                <Divider></Divider>
+               
+                <p className="text-sm text-blue-500 mb-2 mt-2">{`Quantity per Container: ${product.quantity_per_container}`}</p>
+                <Divider className=' bg-slate-950  mt-5'></Divider>
+                
+                <p className="text-sm text-green-800">{`Price per Sack: ${product.price_per_sack}`}</p>
+                <p className="text-sm text-green-800">{`Price per Kg: ${product.price_per_kg}`}</p>
+                <p className="text-sm text-gray-600 mb-2">{`Container Quantity: ${product.container_quantity}`}</p>
+                <Divider className=' bg-slate-950  mt-5 mb-2'></Divider>
+                
+              </div>
+              <div className="flex justify-between items-center mt-2">
+                <div>
+                  <p className="text-sm text-orange-600">{`Discount: ${product.discount}`}</p>
+                </div>
+              
+              </div>
                   </div>
                 </div>
               </div>

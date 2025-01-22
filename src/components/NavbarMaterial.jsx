@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,19 +16,48 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Menu } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import RouteTransition from './ShowTransition';
-import logo from '../images/logo-removebg.webp'
+import logo from '../images/logo-removebg.webp';
+
 const pages = ['Sell', 'Requests', 'Documents', 'About'];
 const settings = ['Logout'];
 
 const NavbarMaterial = () => {
   const { isAuthenticated, user, login, logout } = useAuthStore();
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-const [Show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+  const [navbarColor, setNavbarColor] = useState('transparent');
+  const [textStyle, setTextStyle] = useState({
+    color: 'white',
+  });
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setNavbarColor('white');
+      setTextStyle({
+        background: 'black',
+        WebkitTextStroke: 'none',
+      });
+    } else {
+      setNavbarColor('transparent');
+      setTextStyle({
+        background: 'white',
+      });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const handleOpenNavMenu = () => {
     setMenuOpen(true);
   };
+
   const handleCloseNavMenu = () => {
     setMenuOpen(false);
   };
@@ -71,19 +100,16 @@ const [Show, setShow] = useState(false)
 
   const handlePageNavigation = (page) => {
     switch (page) {
-      
       case 'Home':
         navigate('/Home');
         break;
-        case 'Sell':
-        setShow(true)
+      case 'Sell':
+        setShow(true);
         setTimeout(() => {
           navigate('/ecommerce');
-          setShow(false)
+          setShow(false);
         }, 1000);
-
         break;
-      
       case 'Requests':
         navigate('/solicitudes');
         break;
@@ -93,7 +119,6 @@ const [Show, setShow] = useState(false)
       case 'About':
         document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
         break;
-      
       default:
         break;
     }
@@ -102,11 +127,11 @@ const [Show, setShow] = useState(false)
 
   return (
     <div className='z-50'>
-      <RouteTransition show={Show} />
-      <AppBar position="static" sx={{ backgroundColor: 'white', zIndex: "1000", }} className='z-50'>
+      <RouteTransition show={show} />
+      <AppBar position="fixed" style={{ backgroundColor: navbarColor, transition: 'background-color 0.5s' }} className='z-50'>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', } }} >
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -118,10 +143,10 @@ const [Show, setShow] = useState(false)
                 <MenuIcon className='text-blue-800' />
               </IconButton>
             </Box>
-              {/* Espacio para el logo */}
-              <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 1 }}>
-                <img src={logo} alt="Logo" style={{ width: 40, height: 40 }} />
-              </Box>
+            {/* Espacio para el logo */}
+            <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 1 }}>
+              <img src={logo} alt="Logo" style={{ width: 40, height: 40 }} />
+            </Box>
 
             <Typography
               noWrap
@@ -129,14 +154,15 @@ const [Show, setShow] = useState(false)
               sx={{
                 flexGrow: 1,
                 display: { xs: 'flex', md: 'flex' },
-                background: 'linear-gradient(90deg, blue, red)',
+                background: 'white',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
+                ...textStyle,
               }}
             >
-              ASCYKL
+              ASCYKL SERVICES & LOGISTICS
             </Typography>
-          
+
             <Box sx={{ flexGrow: 0 }}>
               {isAuthenticated ? (
                 <>
@@ -170,9 +196,7 @@ const [Show, setShow] = useState(false)
                 </>
               ) : (
                 <IconButton onClick={() => googleLogin()} sx={{ color: 'white' }}>
-                  <Typography variant="button" sx={{ background: 'rgb(234, 67, 53)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',}}>Login</Typography>
+                  <Typography variant="button" sx={{ background: 'rgb(234, 67, 53)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Login</Typography>
                 </IconButton>
               )}
             </Box>

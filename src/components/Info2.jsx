@@ -49,7 +49,7 @@ const Info2 = () => {
 
         {/* Texto */}
         <div className="md:w-1/2 md:pl-10">
-          <h1 className="text-3xl font-bold mb-4">Transporte Marítimo</h1>
+          <h1 className="text-3xl font-bold mb-4 mt-5">La Red del Futuro</h1>
           <p className="text-gray-600 mb-4">
           Obtén más información sobre la red del futuro, una red innovadora impulsada por circuitos más ágiles con menos escalas por servicio, una amplia red de lanzaderas y nodos líderes en el sector.
           </p>

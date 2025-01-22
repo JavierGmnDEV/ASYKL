@@ -5,7 +5,10 @@ const Confirm = () => {
   return (
     <div>
       <NavbarMaterial />
+      <div className="mt-11">
+
       <OfertaComercial />
+      </div>
     </div>
   );
 };
