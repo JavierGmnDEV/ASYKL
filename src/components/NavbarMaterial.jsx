@@ -31,19 +31,24 @@ const NavbarMaterial = () => {
   const [textStyle, setTextStyle] = useState({
     color: 'white',
   });
+  const [iconColor, setIconColor] = useState('white');
+  const [loginTextColor, setLoginTextColor] = useState('white');
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setNavbarColor('white');
       setTextStyle({
-        background: 'black',
-        WebkitTextStroke: 'none',
+        color: 'black',
       });
+      setIconColor('black');
+      setLoginTextColor('black');
     } else {
       setNavbarColor('transparent');
       setTextStyle({
-        background: 'white',
+        color: 'white',
       });
+      setIconColor('white');
+      setLoginTextColor('white');
     }
   };
 
@@ -138,9 +143,9 @@ const NavbarMaterial = () => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
+                sx={{ color: iconColor }}
               >
-                <MenuIcon className='text-blue-800' />
+                <MenuIcon />
               </IconButton>
             </Box>
             {/* Espacio para el logo */}
@@ -154,9 +159,6 @@ const NavbarMaterial = () => {
               sx={{
                 flexGrow: 1,
                 display: { xs: 'flex', md: 'flex' },
-                background: 'white',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
                 ...textStyle,
               }}
             >
@@ -195,8 +197,8 @@ const NavbarMaterial = () => {
                   </Menu>
                 </>
               ) : (
-                <IconButton onClick={() => googleLogin()} sx={{ color: 'white' }}>
-                  <Typography variant="button" sx={{ background: 'rgb(234, 67, 53)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Login</Typography>
+                <IconButton onClick={() => googleLogin()} sx={{ color: loginTextColor }}>
+                  <Typography variant="button" sx={{ color: loginTextColor }}>Login</Typography>
                 </IconButton>
               )}
             </Box>

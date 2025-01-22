@@ -5,7 +5,7 @@ const LiquidationSection = () => {
   const { openContactModal } = useModalStore();
 
   return (
-    <section className="relative w-full h-[750px] bg-[url('https://th.bing.com/th/id/R.ba19c807588b491c27c7f73f10f4ad3c?rik=P3FSuCk7hx27JQ&pid=ImgRaw&r=0')] bg-cover bg-center flex items-center">
+    <section className="relative w-full h-[750px] bg-[url('https://img.freepik.com/foto-gratis/vista-aerea-buque-carga-contenedores-mar_335224-718.jpg?t=st=1737516327~exp=1737519927~hmac=befeb8a2b8e7e2e4fbc91a0905afa2ad4600193ae71cf6667948e908fca884b7&w=1060')] bg-cover bg-center flex items-center">
       {/* Capa oscura */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
